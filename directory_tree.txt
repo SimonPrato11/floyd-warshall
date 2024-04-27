@@ -8,6 +8,7 @@
 │   ├── performance.py
 │   └── unit.py
 ├── directory_tree.txt
+├── requierments.txt
 ├── functions
 │   ├── iterative.py
 │   └── recursive.py
