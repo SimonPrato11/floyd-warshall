@@ -1,6 +1,6 @@
 # Recursive Floyd Warshall Algorithm
 
-The project presents a Python implementation of the Floyd-Warshall algorithm using recursion. The algorithm computes the shortest paths in a directed graph, handling both positive and negative edge weights effectively, as long as there are no negative cycles.
+This project presents a Python implementation of the Floyd-Warshall algorithm using recursion. The algorithm computes the shortest paths in a directed graph, handling both positive and negative edge weights effectively, as long as there are no negative cycles.
 
 ## Installation
 
@@ -46,3 +46,5 @@ To run the recursive function module, use the following command:
 Pull requests are welcome. Please make sure to update tests as appropriate.
 
 ## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
