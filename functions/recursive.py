@@ -1,7 +1,11 @@
 """Decribe waht this function does"""
 
+from utils.validate import validate_graph
+
 
 def floyd_warshall_recursive(graph):
+    validate_graph(graph)
+
     num_vertices = len(graph)
     state = {}  # This dictionary will cache the results of subproblems
 
