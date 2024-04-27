@@ -1,37 +1,58 @@
-"""Decribe waht this function does"""
+"""
+Module containing the recursive implementation of the Floyd-Warshall algorithm.
+This implementation finds the shortest paths in a weighted graph with positive or
+negative edge weights.
+"""
 
 from utils.validate import validate_graph
 
 
 def floyd_warshall_recursive(graph):
-    validate_graph(graph)
+    """
+    Computes the shortest paths in a weighted graph using a recursive approach
+    that utilizes memoization to improve efficiency.
+
+    This function modifies the input graph to reflect the shortest paths between
+    all pairs of vertices.
+
+    Parameters:
+    graph (list of list of int): A 2D list representing the adjacency matrix of the graph,
+    where a high value (like sys.maxsize) represents no direct path between vertices.
+
+    Returns:
+    list of list of int: The graph updated to represent the shortest
+    path distances between all vertex pairs.
+    """
+    validate_graph(graph)  # Ensure the input graph is a properly formatted.
 
     num_vertices = len(graph)
-    state = {}  # This dictionary will cache the results of subproblems
+    state = {}  # Dictionary to cache the results.
 
     def find_path(inter, start, end):
-        # Memoization check: return the cached result if available
+        """
+        Recursively find the shortest path between two vertices with the option to use
+        an intermediate vertex.
+        """
+        # Return cached result if available to avoid redundant calculations.
         if (inter, start, end) in state:
             return state[(inter, start, end)]
 
-        # Base case: if no intermediate vertices are allowed, return direct path
+        # Base case: No intermediate vertices, directly return the direct path.
         if inter == -1:
             return graph[start][end]
 
-        # Recursive case: Compute shortest path with and without the intermediate vertex
+        # Recursive case: Consider paths through the intermediate vertex and directly.
         without_inter = find_path(inter - 1, start, end)
         with_inter = find_path(inter - 1, start, inter) + find_path(
             inter - 1, inter, end
         )
 
-        # The minimum of both paths is the shortest path considering up to 'inter' as intermediate
+        # The minimum path distance is stored and used.
         result = min(without_inter, with_inter)
-
-        # Cache the result before returning
         state[(inter, start, end)] = result
         return result
 
-    # Update the graph with the shortest paths computed recursively
+    # Update the graph with the shortest paths computed recursively.
     for inter in range(num_vertices):
         for start in range(num_vertices):
             for end in range(num_vertices):

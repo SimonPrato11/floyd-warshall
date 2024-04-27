@@ -1,12 +1,12 @@
-"""Python3 Program for Floyd Warshall Algorithm"""
+""" Imperative solution of Floyd Warshall Algorithm: 
+https://www.geeksforgeeks.org/floyd-warshall-algorithm-dp-16/
 
-# Number of vertices in the graph
-V = 4
+This version is modified from the original to dynamically handle any number of vertices 
+based on the input graph's size.
+"""
 
-# Define infinity as the large
-# enough value. This value will be
-# used for vertices not connected to each other
-INF = 99999
+# Solves all pair shortest path
+# via Floyd Warshall Algorithm
 
 
 def floydWarshall(graph):
@@ -14,6 +14,15 @@ def floydWarshall(graph):
     matrix that will finally
      have the shortest distances
      between every pair of vertices"""
+    """ initializing the solution matrix 
+    same as input graph matrix
+    OR we can say that the initial 
+    values of shortest distances
+    are based on shortest paths considering no 
+    intermediate vertices """
+
+    # Number of vertices in the graph, determined dynamically
+    V = len(graph)
 
     dist = list(map(lambda i: list(map(lambda j: j, i)), graph))
 

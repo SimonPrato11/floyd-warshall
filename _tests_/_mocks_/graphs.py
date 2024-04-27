@@ -1,8 +1,11 @@
-"""Mocks for function tests"""
+"""This module provides mock graph structures and their solutions for use in tests."""
 
 import sys
 
+# Define a variable for infinity
 INF = sys.maxsize
+
+# Mock graph structures for testing.
 short_graph = [[0, 5, INF, 10], [INF, 0, 3, INF], [INF, INF, 0, 1], [INF, INF, INF, 0]]
 medium_graph = [
     [0, 5, INF, 10, INF],
@@ -20,7 +23,7 @@ large_graph = [
     [INF, 4, INF, INF, INF, 0, 1, INF],
 ]
 
-
+# Solutions to the predefined graph structures - expected outcomes of the unit tests.
 short_graph_solution = [
     [0, 5, 8, 9],
     [INF, 0, 3, 4],
