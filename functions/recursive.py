@@ -4,8 +4,6 @@ This implementation finds the shortest paths in a weighted graph with positive o
 negative edge weights.
 """
 
-from utils.validate import validate_graph
-
 
 def floyd_warshall_recursive(graph):
     """
@@ -23,7 +21,6 @@ def floyd_warshall_recursive(graph):
     list of list of int: The graph updated to represent the shortest
     path distances between all vertex pairs.
     """
-    validate_graph(graph)  # Ensure the input graph is a properly formatted.
 
     num_vertices = len(graph)
     state = {}  # Dictionary to cache the results.
