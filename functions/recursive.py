@@ -7,8 +7,7 @@ negative edge weights.
 
 def floyd_warshall_recursive(graph):
     """
-    Computes the shortest paths in a weighted graph using a recursive approach
-    that utilizes memoization to improve efficiency.
+    Computes the shortest paths in a weighted graph using a recursive approach.
 
     This function modifies the input graph to reflect the shortest paths between
     all pairs of vertices.
@@ -49,7 +48,7 @@ def floyd_warshall_recursive(graph):
         state[(inter, start, end)] = result
         return result
 
-    # Update the graph with the shortest paths computed recursively.
+    # Update the graph with the shortest paths computed.
     for inter in range(num_vertices):
         for start in range(num_vertices):
             for end in range(num_vertices):
