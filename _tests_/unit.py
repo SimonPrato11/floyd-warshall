@@ -66,6 +66,20 @@ class TestValidateGraphFunction(unittest.TestCase):
             str(context.exception), "Invalid format: argument should be a list"
         )
 
+    def test_validate_graph_with_non_integer_in_sublist(self):
+        """
+        Test that the validate_graph function raises a ValueError
+        when any sublist contains non-integer elements.
+        """
+        graph_with_error = [[1, 2, 3], [4, 5, "six"]]
+
+        with self.assertRaises(ValueError) as context:
+            validate_graph(graph_with_error)
+        self.assertEqual(
+            str(context.exception),
+            "Invalid format: all elements in the sublists must be integers",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
