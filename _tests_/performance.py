@@ -59,3 +59,6 @@ if __name__ == "__main__":
         print(
             f"Time for iterative function on {name} graph: {iterative_function_time:.8f} seconds"
         )
+        print(
+            f"The difference in time is {recursive_function_time - iterative_function_time:.8f} seconds\n"
+        )
